@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # internal_apps
     'word',
     'account',
+    'deaf',
     # external_apps
 ]
 

@@ -18,6 +18,7 @@ class CategoriesOfTheDeaf(models.Model):
 class Sentence(models.Model):
     title = models.CharField(max_length=100, verbose_name="عنوان جمله")
     video_url = models.URLField(verbose_name="url ویدیو")
+    category = models.ManyToManyField(CategoriesOfTheDeaf, related_name='sentences', verbose_name="دسته بندی حمله")
 
     def __str__(self):
         return self.title

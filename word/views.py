@@ -22,5 +22,8 @@ class WordCategory(generics.ListAPIView):
     def get_queryset(self):
         queryset = super().get_queryset()
         category_title = self.request.GET['category_title']
-        queryset = queryset.filter(category_title__iexact=category_title)
+        if category_title:
+            queryset = queryset.filter(category_title__iexact=category_title)
+            return queryset
+
         return queryset
