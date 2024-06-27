@@ -22,6 +22,7 @@ class Word(models.Model):
     pronunciation_of_the_word = models.CharField(max_length=100, verbose_name='تلفظ کلمه')
     image = models.ImageField(upload_to='words', verbose_name='تصویر کلمه')
     video_url = models.URLField(verbose_name='url ویدیو')
+    categorize_word = models.ManyToManyField(CategorizeWord, related_name='words', verbose_name='دسته بندی کلمه')
 
     def __str__(self):
         return self.title
