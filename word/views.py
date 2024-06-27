@@ -27,3 +27,22 @@ class WordCategory(generics.ListAPIView):
             return queryset
 
         return queryset
+
+
+class CreateSentence(generics.RetrieveAPIView):
+    queryset = Word.objects.all()
+    serializer_class = WordSerializer
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        title = self.request.query_params.get('search')
+        if title:
+            queryset = queryset.filter(title__iexact=title)
+            return queryset
+
+        return queryset
+
+
+class Test(generics.RetrieveAPIView):
+    queryset = Word.objects.order_by("?").first()
+    serializer_class = WordSerializer

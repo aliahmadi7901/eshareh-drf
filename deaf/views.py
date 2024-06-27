@@ -27,5 +27,3 @@ class SentenceCategoryList(generics.ListAPIView):
             return queryset
 
         return queryset
-
-
