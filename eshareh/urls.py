@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('words/', include('word.urls')),
     path('sentences/', include('deaf.urls')),
+    path('account/', include('account.urls')),
 ]
