@@ -21,7 +21,7 @@ class SentenceCategoryList(generics.ListAPIView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        category_title = self.request.GET.get('category_title')
+        category_title = self.request.query_params.get('category_title')
         if category_title:
             queryset = queryset.filter(category_title__icontains=category_title)
             return queryset

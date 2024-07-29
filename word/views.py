@@ -12,7 +12,7 @@ class WordViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=['get'])
     def word_category(self, request):
         queryset = Word.objects.all()
-        category_title = self.request.GET['category_title']
+        category_title = self.request.query_params.get('category_title')
         if category_title:
             queryset = queryset.filter(categorize_word__title__iexact=category_title)
             return queryset
